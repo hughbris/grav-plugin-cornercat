@@ -49,6 +49,8 @@ Note that if you use the admin plugin, a file with your configuration, and named
 
 The cornercat is enabled by default on install.
 
+If you need to add custom styles for your cornercat, create a file in your theme's `css` folder called `cornercat-custom.css` (so `user/<theme>/css/cornercat-custom.css`) and it will be picked up.
+
 ## Credits
 
 Thanks to [@tholman](https://github.com/tholman) for the front end code.
