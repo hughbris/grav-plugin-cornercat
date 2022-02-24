@@ -49,7 +49,7 @@ EOS;
 
 	public function addCorner() {
 		$output = $this->grav->output;
-		$output = preg_replace('/(\<body).*?(\>)/i', '${0}' . $this->snippet, $output, 1);
+		$output = preg_replace('/(\<\/body)\s*(\>)/i', $this->snippet . '${0}', $output, 1); // it's absolutely positioned, so we can add this before the closing body tag
 		$this->grav->output = $output;
 	}
 
