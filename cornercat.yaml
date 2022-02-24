@@ -6,3 +6,4 @@ animated: true # whether the cat waves on hover
 position: right # which top corner your cat prefers
 repository: hughbris/grav-plugin-cornercat # link destination Github repo (only the owner/repo): change this or I get the kudos
 # target: # optional for setting the browsing context if you want to be like _that_
+# styles: # optional custom CSS property/value declarations for SVG element - e.g. z-index: 10

@@ -47,6 +47,7 @@ fill: '#151513' # background colour or SVG 'fill'
 animated: true # whether the cat waves on hover
 position: right # which top corner your cat prefers
 repository: hughbris/grav-plugin-cornercat # link destination Github repo (only the owner/repo): change this or I get the kudos
+# styles: # optional custom CSS property/value declarations for SVG element - e.g. z-index: 10
 ```
 
 Note that if you use the admin plugin, a file with your configuration, and named cornercat.yaml will be saved in the `user/config/plugins/` folder once the configuration is saved in the admin.
@@ -55,7 +56,9 @@ Note that if you use the admin plugin, a file with your configuration, and named
 
 The cornercat is enabled by default on install.
 
-If you need to add custom styles for your cornercat, create a file in your theme's `css` folder called `cornercat-custom.css` (so `user/<theme>/css/cornercat-custom.css`) and it will be picked up.
+If you need to add custom styles for your cornercat, create a file in your theme's `css` folder called `cornercat-custom.css` (so `user/<theme>/css/cornercat-custom.css`) and it will be picked up. Alternatively, you can add inline styles for the SVG element using CSS property/value settings as YAML in the config under `styles` (see above).
+
+You may need to add styles to increase your z-index value, depending on your theme.
 
 ## Credits
 
