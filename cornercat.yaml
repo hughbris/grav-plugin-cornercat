@@ -1,2 +1,8 @@
 enabled: true
-text_var: Custom Text added by the **Cornercat** plugin (disable plugin to remove)
+default: true # whether the Octocat is included or excluded by default
+color: '#151513' # background colour
+fill: '#fff' # foreground colour
+animated: true # whether the cat waves on hover
+position: right # which top corner your cat prefers
+repository: hughbris/grav-plugin-cornercat # link destination Github repo: change this or I get the kudos
+# target: # optional for setting the browsing context if you want to be like _that_
