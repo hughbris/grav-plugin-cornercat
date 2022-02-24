@@ -40,7 +40,8 @@ Here is the default configuration and an explanation of available options:
 
 ```yaml
 enabled: true
-
+color: '#fff' # foreground colour or SVG 'color'
+fill: '#151513' # background colour or SVG 'fill'
 ```
 
 Note that if you use the admin plugin, a file with your configuration, and named cornercat.yaml will be saved in the `user/config/plugins/` folder once the configuration is saved in the admin.
@@ -59,8 +60,8 @@ Thanks to [@tholman](https://github.com/tholman) for the front end code.
 
 Support parameters sketched out in the [default config file](cornercat.yaml):
 - [ ] default
-- [ ] color
-- [ ] fill
+- [x] color
+- [x] fill
 - [ ] animated
 - [ ] position
 - [ ] repository
