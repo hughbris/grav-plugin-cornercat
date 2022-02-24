@@ -1,8 +1,10 @@
 # Cornercat Plugin
 
-**This README.md file should be modified to describe the features, installation, configuration, and general usage of this plugin.**
+The **Cornercat** Plugin is for [Grav CMS](http://github.com/getgrav/grav).
 
-The **Cornercat** Plugin is for [Grav CMS](http://github.com/getgrav/grav). Places a Github Octocat linked to a relevant repo on the corner of your webpages
+It places a Github Octocat hyperlinked to a relevant repo on the corner of your webpages. It would be useful if you are demoing a theme or plugin, or have pages about other software you have written that is available on Github.
+
+The graphic and corner code have been taken from [Tim Holman](https://github.com/tholman)'s [github-corners](https://github.com/tholman/github-corners) under its [MIT License](https://github.com/tholman/github-corners/blob/master/license.md).
 
 ## Installation
 
@@ -38,19 +40,27 @@ Here is the default configuration and an explanation of available options:
 
 ```yaml
 enabled: true
+
 ```
 
 Note that if you use the admin plugin, a file with your configuration, and named cornercat.yaml will be saved in the `user/config/plugins/` folder once the configuration is saved in the admin.
 
 ## Usage
 
-**Describe how to use the plugin.**
+The cornercat is enabled by default on install.
 
 ## Credits
 
-**Did you incorporate third-party code? Want to thank somebody?**
+Thanks to [@tholman](https://github.com/tholman) for the front end code.
 
 ## To Do
 
-- [ ] Future plans, if any
+Support parameters sketched out in the [default config file](cornercat.yaml):
+- [ ] default
+- [ ] color
+- [ ] fill
+- [ ] animated
+- [ ] position
+- [ ] repository
+- [ ] target
 
