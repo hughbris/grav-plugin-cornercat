@@ -43,6 +43,7 @@ enabled: true
 color: '#fff' # foreground colour or SVG 'color'
 fill: '#151513' # background colour or SVG 'fill'
 animated: true # whether the cat waves on hover
+position: right # which top corner your cat prefers
 ```
 
 Note that if you use the admin plugin, a file with your configuration, and named cornercat.yaml will be saved in the `user/config/plugins/` folder once the configuration is saved in the admin.
@@ -64,7 +65,7 @@ Support parameters sketched out in the [default config file](cornercat.yaml):
 - [x] color
 - [x] fill
 - [x] animated
-- [ ] position
+- [x] position
 - [ ] repository
 - [ ] target
 
