@@ -48,7 +48,9 @@ EOS;
 	}
 
 	public function addPluginAssets() {
-		$this->grav['assets']->addCss('plugins://cornercat/css/animate.css'); // FIXME: only if config.animated
+		if($this->options['animated']) {
+			$this->grav['assets']->addCss('plugins://cornercat/css/animate.css');
+		}
 		$this->grav['assets']->addCss('theme://css/cornercat-custom.css');
 	}
 
