@@ -72,7 +72,7 @@ EOS;
 EOS;
 		}
 
-		$this->snippet = "<a href=\"#\" id=\"github-corner\" aria-label=\"View source on GitHub\">$svg</a>";
+		$this->snippet = "<a href=\"https://github.com/{$this->options['repository']}\" id=\"github-corner\" aria-label=\"View source on GitHub\">$svg</a>";
 	}
 
 }

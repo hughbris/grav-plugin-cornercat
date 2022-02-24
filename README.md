@@ -44,6 +44,7 @@ color: '#fff' # foreground colour or SVG 'color'
 fill: '#151513' # background colour or SVG 'fill'
 animated: true # whether the cat waves on hover
 position: right # which top corner your cat prefers
+repository: hughbris/grav-plugin-cornercat # link destination Github repo (only the owner/repo): change this or I get the kudos
 ```
 
 Note that if you use the admin plugin, a file with your configuration, and named cornercat.yaml will be saved in the `user/config/plugins/` folder once the configuration is saved in the admin.
@@ -66,6 +67,5 @@ Support parameters sketched out in the [default config file](cornercat.yaml):
 - [x] fill
 - [x] animated
 - [x] position
-- [ ] repository
+- [x] repository
 - [ ] target
-
