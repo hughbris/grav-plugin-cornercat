@@ -6,8 +6,8 @@ author:
   name: Hugh Barnes
   email: dev@hubns.com
 homepage: https://github.com/hughbris/grav-plugin-cornercat
-demo: http://demo.yoursite.com
-keywords: grav, plugin, etc
+demo: https://tholman.com/github-corners/
+keywords: plugin, github, octocat
 bugs: https://github.com/hughbris/grav-plugin-cornercat/issues
 docs: https://github.com/hughbris/grav-plugin-cornercat/blob/develop/README.md
 license: MIT
@@ -25,7 +25,3 @@ form:
         0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
-    text_var:
-      type: text
-      label: PLUGIN_CORNERCAT.TEXT_VARIABLE
-      help: PLUGIN_CORNERCAT.TEXT_VARIABLE_HELP
