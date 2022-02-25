@@ -42,21 +42,38 @@ Here is the default configuration and an explanation of available options:
 
 ```yaml
 enabled: true
+default: true # whether the Octocat is included or excluded by default (more details below)
 color: '#fff' # foreground colour or SVG 'color'
 fill: '#151513' # background colour or SVG 'fill'
 animated: true # whether the cat waves on hover
 position: right # which top corner your cat prefers
 repository: hughbris/grav-plugin-cornercat # link destination Github repo (only the owner/repo): change this or I get the kudos
-# styles: # optional custom CSS property/value declarations for SVG element - e.g. z-index: 10
+# styles: # optional custom CSS property/value declarations for SVG element - e.g. z-index: 10 (more details below)
+```
+
+You can also set these options (except `enabled` and `default`) under `cornercat` on any page's frontmatter to override these settings for that page only. For example:
+
+```yaml
+title: My special page
+cornercat:  # child settings here imply that the cat is shown on this page (more detail below under "Usage")
+  repository: tholman/github-corners
+  fill: '#f0f'
 ```
 
 Note that if you use the admin plugin, a file with your configuration, and named cornercat.yaml will be saved in the `user/config/plugins/` folder once the configuration is saved in the admin.
 
 ## Usage
 
-The cornercat is enabled by default on install.
+The cornercat is enabled by **default** on every page on install. If you want to control which pages show the cat, first decide whether you want Octocat shown by default, and change `default` to `true` or `false` in your theme config. Then for each page that is different, add headers to their frontmatter with `cornercat: true # or false`. For example:
 
-If you need to add custom styles for your cornercat, create a file in your theme's `css` folder called `cornercat-custom.css` (so `user/<theme>/css/cornercat-custom.css`) and it will be picked up. Alternatively, you can add inline styles for the SVG element using CSS property/value settings as YAML in the config under `styles` (see above).
+```yaml
+title: "Let's be serious, guys"
+cornercat: false
+```
+
+> Regardless of your default setting, if you set any custom options for the plugin on any page frontmatter, cornercat will be enabled on that page (that is, `cornercat: true` is implied).
+
+If you need to add custom styles for your cornercat, create a file in your theme's `css` folder called `cornercat-custom.css` (so `user/<theme>/css/cornercat-custom.css`) and it will be picked up. Alternatively, you can add inline **styles** for the SVG element using CSS property/value settings as YAML in the config under `styles` (see above).
 
 You may need to add styles to increase your z-index value, depending on your theme.
 
@@ -67,10 +84,10 @@ Thanks to [@tholman](https://github.com/tholman) for the front end code.
 ## To Do
 
 Support parameters sketched out in the [default config file](cornercat.yaml):
-- [ ] default
+- [x] default (#2)
 - [x] color
 - [x] fill
 - [x] animated
 - [x] position
 - [x] repository
-- [ ] target
+- [ ] target (#3)

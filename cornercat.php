@@ -13,8 +13,7 @@ class CornercatPlugin extends Plugin
 	private $defaults = [
 		'styles' => [],
 		];
-
-
+	private $playing; // will kitty come out to play?
 	private $options, $snippet;
 
 	public static function getSubscribedEvents()
@@ -30,28 +29,61 @@ class CornercatPlugin extends Plugin
 		if ($this->isAdmin()) {
 			return;
 		}
-
 		$this->options = array_merge($this->defaults, $this->config());
-		$this->populateSnippet();
+		$this->playing = boolval($this->options['default']);
 
 		// Enable the main events we are interested in
 		$this->enable([
 			'onAssetsInitialized' => ['addPluginAssets', 0],
+			'onPageInitialized' => ['checkPageOverrides', 0],
 			'onOutputGenerated' => ['addCorner', 0],
 		]);
 	}
 
-	public function addPluginAssets() {
+	public function addPluginAssets(): void {
 		if($this->options['animated']) {
 			$this->grav['assets']->addCss('plugins://cornercat/css/animate.css');
 		}
 		$this->grav['assets']->addCss('theme://css/cornercat-custom.css');
 	}
 
-	public function addCorner() {
-		$output = $this->grav->output;
-		$output = preg_replace('/(\<\/body)\s*(\>)/i', $this->snippet . '${0}', $output, 1); // it's absolutely positioned, so we can add this before the closing body tag
-		$this->grav->output = $output;
+	private function removePluginAssets(): void {
+		$this->grav['assets']->removeCss('theme://css/cornercat-custom.css');
+		$this->grav['assets']->removeCss('plugins://cornercat/css/animate.css');
+	}
+
+	// merge plugin options with any page specific plugin headers and set $this->playing
+	// we can only do this after page initialized and not unfortunately not sooner
+	public function checkPageOverrides() {
+		$pageHeaders = $this->grav['page']->header();
+		if(property_exists($pageHeaders, 'cornercat')) {
+			if(is_array($pageHeaders->cornercat)) {
+				foreach($pageHeaders->cornercat as $prop => $val) {
+					if(!in_array($prop, ['enabled', 'default'])) {
+						$this->options[$prop] = $val;
+					}
+				}
+				$this->playing = TRUE;
+			}
+			else {
+				$this->playing = boolval($pageHeaders->cornercat);
+			}
+		}
+	}
+
+	public function addCorner(): void {
+
+		if($this->playing) {
+			$this->populateSnippet();
+
+			$output = $this->grav->output;
+			$output = preg_replace('/(\<\/body)\s*(\>)/i', $this->snippet . '${0}', $output, 1); // it's absolutely positioned, so we can add this before the closing body tag
+			$this->grav->output = $output;
+		}
+		else {
+			// undo our good work
+			$this->removePluginAssets();
+		}
 	}
 
 	private function populateSnippet(): void {
